@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Help</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+
+    <h1>🩺 Patient Help System</h1>
+    <form method="post">
+        {% for key in ['Nurse', 'Emergency', 'Water', 'Washroom', 'Meal'] %}
+            <button name="help" value="{{ key }}">{{ key }}</button><br><br>
+        {% endfor %}
+    </form>
+
+    {% if response %}
+        <h2>{{ response }}</h2>
+    {% endif %}
+</body>
+</html>
